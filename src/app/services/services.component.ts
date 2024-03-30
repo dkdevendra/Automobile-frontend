@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { Service } from '../home/models/services.model';
-
+import {Services} from './services.service';
 @Component({
   selector: 'app-services',
   standalone: true,
@@ -16,30 +16,13 @@ export class ServicesComponent implements OnInit{
     this.fetchData();
   }
   httpClient = inject(HttpClient);
-  data: any[] = []
-  services: Service [] = [
-    {
-      serviceName: "Genral Service",
-      serviceDescription: "General Service description"
-    },
-    {
-      serviceName: "Genral Service",
-      serviceDescription: "General Service description"
-    },
-    {
-      serviceName: "Genral Service",
-      serviceDescription: "General Service description"
-    },
-    {
-      serviceName: "Genral Service",
-      serviceDescription: "General Service description"
-    },
-  ]
+  service = inject(Services);
+  services: Service [] = []
   fetchData(){
-    this.httpClient.get('https://jsonplaceholder.typicode.com/posts').subscribe(
+    this.service.getServices().subscribe(
       (data: any)=>{
         console.log(data);
-        this.data = data;
+        this.services = data;
       }
     )
   }

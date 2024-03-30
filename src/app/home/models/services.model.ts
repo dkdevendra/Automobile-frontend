@@ -1,5 +1,8 @@
 
 export interface Service{
+    serviceId: number
     serviceName: String
-    serviceDescription: String
+    serviceDetails: String
+    servicePhoto: String
+    serviceCost: number
 }

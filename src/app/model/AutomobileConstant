@@ -1,0 +1,9 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+})
+export class AutomobileConstant {
+    public services = "http://localhost:8090/all-services";
+    public TEST2 = "testval2";
+}
