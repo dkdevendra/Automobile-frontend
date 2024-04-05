@@ -14,24 +14,38 @@
 </section>
 <mat-divider></mat-divider>  -->
 <div class="container" ng-controller="myCtrl">
-    <input type="text" class="form-control" ng-model="search" placeholder="Search for names..">
-  
+    <input type="text" class="form-control" ng-model="search" placeholder="Search for names.."><br>
+    <button mat-raised-button color="Create Parts">Create Parts</button><br>
     <table class="table">
       <thead>
         <tr>
+          <th>Inventory Id</th>
           <th>Part Name</th>
           <th>Part Description</th>
+          <th>Part Price</th>
+          <th>Part Type</th>
+          <th>Part Available</th>
+          <th>Part ServiceRepair</th>
           <th>Part Count</th>
+          <th>Part UpdatingDate</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         @for (part of parts; track part) {
         <tr >
           <td class="collapsible-button" ng-click="toggleContent($index)">{{part.partName}}</td>
+          <td>{{part.inventoryId}}</td>
           <td>{{part.partName}}</td>
+          <td>{{part.description}}</td>
+          <td>{{part.partPrice}}</td>
+          <td>{{part.partType}}</td>
+          <td>{{part.partAvailable}}</td>
+          <td>{{part.serviceRepairPart}}</td>
           <td>{{part.partCount}}</td>
+          <td>{{part.updatingDate}}</td>
         </tr>
-        <tr class="collapsible-content" ng-repeat="person in people">
+        <!-- <tr class="collapsible-content" ng-repeat="person in people">
           <td colspan="3">
             <p>Additional Information:</p>
             <ul>
@@ -39,7 +53,7 @@
               <li>Additonal details</li>
             </ul>
           </td>
-        </tr>
+        </tr> -->
     }
       </tbody>
     </table>
